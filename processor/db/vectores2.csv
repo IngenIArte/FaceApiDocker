@@ -1,0 +1,35 @@
+,clase,campo,texto,zonabusqueda,bbox,regexselect,regexreplace,datatype,params,sampleformat
+0,CP,cp.asiento,Asiento:,-146 -60 241 261,201 6 339 12,CP\d{8},,str,,CP00000000
+1,CP,cp.fecha_emision,Fecha de emisión:,52 321 607 642,163 8 265 13,\d{2}/\d{2}/\d{4},,datetime,%d/%m/%Y|%d/%m/%Y,dd/mm/yyyy
+2,CP,cp.fecha_asiento,Fecha de Asiento:,-146 37 450 358,201 6 303 12,\d{2}/\d{2}/\d{4},,datetime,%d/%m/%Y|%d/%m/%Y,dd/mm/yyyy
+3,CP,cp.centro_costo,N Centro Costo Cuenta Contable Documento,-133 397 609 717,53 111 121 114,(?<=(\s|^))\d\.\d\.\d\.\d{2}(?=(\s|$)),,str,,0.0.0.00
+4,CP,cp.cuenta_contable,N Centro Costo Cuenta Contable Documento,-133 397 609 717,170 111 266 115,(?<=(\s|^))\d{2}\.\d\.\d\.\d\.\d{2}(?=(\s|$)),,str,,00.0.0.0.00
+5,FA,fa.ruc,FACTURA,934 69 1460 427,46 -56 357 -52,\d{11},,str,,00000000000
+6,FA,fa.tipo_doc,FACTURA,934 69 1460 427,-20 25 259 29,.*,,str,,
+7,FA,fa.numero_doc,FACTURA,934 69 1460 427,-83 120 332 127,.*,,str,,
+8,FA,fa.importe_total,TOTAL,925 942 1298 1266,168 9 423 19,.*,,str,,
+9,OC.LOG,oc.nombre_proveedor,EL PROVEEDOR,-143 91 304 415,217 4 653 11,(?(?=.*:):<=.*|.*),,str,,
+10,OC.LOG,oc.ruc,RUC,-145 126 194 445,209 5 357 7,\d{11},,str,,00000000000
+11,OC.LOG,oc.fecha_emision,FECHA EMISION,759 122 1207 447,279 8 373 12,\d{2}/\d{2}/\d{4},,datetime,%d/%m/%Y|%d/%m/%Y,dd/mm/yyyy
+12,OC.LOG,oc.detalle.precio,,,,"(?<=(\s|^))(\d{1,3}\,)*\d{1,3}\.\d{4}(?=(\s|$))",",|",float,,"0,000.0000"
+13,OC.LOG,oc.detalle.codigo,,,,ART\d{7},,str,,ART0000000
+14,OC.LOG,oc.subtotal,SUBTOTAL,975 937 1369 1268,240 14 369 16,"(?<=(\s|^))(\d{1,3}\,)*\d{1,3}\.\d{2}(?=(\s|$))",",|",float,,"0,000.00"
+15,OC.LOG,oc.total,TOTAL,974 1051 1331 1380,250 14 372 16,"(?<=(\s|^))(\d{1,3}\,)*\d{1,3}\.\d{2}(?=(\s|$))",",|",float,,"0,000.00"
+16,OC.LOG,oc.numero,Nº O/C,759 90 1114 415,277 8 425 14,OC\d{8},,str,,OC00000000
+17,OC.LOG,oc.observaciones,GERENCIA,759 286 1155 608,276 7 540 9,(?(?=.*:):<=.*|.*),,str,,
+18,OC.CON,oc.ruc,RUC,-143 149 188 471,155 6 296 11,\d{11},,str,,00000000000
+19,OC.CON,oc.observaciones,GERENCIA,-138 265 258 588,260 7 591 12,(?(?=.*:):<=.*|.*),,str,,
+20,OC.CON,oc.numero,NRO. DE O/C,833 77 1272 410,270 18 448 24,OC\d{8},,str,,OC00000000
+21,OC.CON,oc.fecha_emision,FECHA,833 133 1209 454,267 7 391 12,\d{2}/\d{2}/\d{4},,datetime,%d/%m/%Y|%d/%m/%Y,dd/mm/yyyy
+22,OC.CON,oc.subtotal,VALOR VENTA,1034 662 1509 985,209 9 366 15,"(?<=(\s|^))(\d{1,3}\,)*\d{1,3}\.\d{2}(?=(\s|$))",",|",float,,"0,000.00"
+23,OC.CON,oc.total,PRECIO VENTA,1033 726 1512 1057,205 14 367 19,"(?<=(\s|^))(\d{1,3}\,)*\d{1,3}\.\d{2}(?=(\s|$))",",|",float,,"0,000.00"
+24,OC.CON,oc.detalle.cr,,,,\d\.\d\.\d\.\d\d,,str,,0.0.0.00
+25,OC.CON,oc.detalle.cuenta_contable,,,,((?<=\s)|(?<=^))\d\d\.\d\.\d\.\d\.\d\d((?=$)|(?=\s)),,str,,00.0.0.0.00
+26,OC.CON,oc.detalle.precio,,,,"(?<=(\s|^))(\d{1,3}\,)*\d{1,3}\.\d{4}(?=(\s|$))",",|",float,,"0,000.0000"
+27,OC.CON,oc.detalle.codigo,,,,ART\d{7},,str,,ART0000000
+28,PI,pi.observaciones,Observaciones:,-148 51 292 372,199 9 686 14,(?(?=.*:):<=.*|.*),,str,,
+29,PI,pi.nombre_proveedor,Proveedor:,403 16 802 341,228 9 685 12,(?(?=.*:):<=.*|.*),,str,,
+30,PI,pi.numero,Parte de Ingreso N,378 -83 1130 250,283 17 451 17,EM\d{8},,str,,EM00000000
+31,PI,pi.orden_compra,Orden,439 97 782 415,-15 42 65 46,OC\d{8},,str,,OC00000000
+32,PI,pi.subtotal,Impuesto:,1103 277 1480 594,201 -25 265 -23,"(?<=(\s|^))(\d{1,3}\,)*\d{1,3}\.\d{2}(?=(\s|$))",",|",float,,"0,000.00"
+33,PI,pi.total,Total:,1105 309 1446 624,199 5 272 8,"(?<=(\s|^))(\d{1,3}\,)*\d{1,3}\.\d{2}(?=(\s|$))",",|",float,,"0,000.00"

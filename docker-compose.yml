@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  web:
+    build: .
+    ports:
+      - '80:80'
+    depends_on:
+      - redis
+    volumes:
+      - pdfs:/app/tmp
+    command: python3 main.py
+  worker:
+    build: .
+    command: python3 worker.py
+    depends_on:
+      - redis
+    volumes:
+      - pdfs:/app/tmp
+  redis:
+    image: redis:4.0.11-alpine
+
+  dashboard:
+    build: ./dashboard
+    ports:
+      - '9181:9181'
+    command: rq-dashboard -H redis
+volumes:
+  pdfs:

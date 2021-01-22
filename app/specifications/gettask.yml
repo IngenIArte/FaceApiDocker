@@ -1,0 +1,13 @@
+Tarea de extraccion
+---
+parameters:
+  - name: task_id
+    type: string
+    in: path
+    description: Id de la tarea
+    required: true
+responses:
+  200:
+    description: Estado de la tarea
+    schema:
+      $ref: '#/definitions/TaskResult'

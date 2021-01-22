@@ -1,0 +1,57 @@
+Inicia una nueva tarea de extraccion de PDT
+---
+parameters:
+  - name: body
+    in: body
+    schema:
+      type: object
+      properties:
+        files:
+          type: array
+          items:
+            $ref: '#/definitions/File'
+          required: true
+responses:
+  200:
+    description: Resultado de la extraccion
+    schema:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: ["success", "fail", "error"]
+        data:
+          type: string
+          enum: ["Jhon", "Manuel", "Samir", "Sebastian", "Aaron", "Gisela", "Juan", ]
+        message:
+          type: string
+          description: Mensaje en caso de error
+definitions:
+  File:
+    type: object
+    properties:
+      filebase64:
+        type: string
+        description: Imagen codificado en en base64
+      filename:
+        type: string
+        description: Nombre del archivo
+  Result:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Id del Archivo
+      filename:
+        type: string
+        description: Nombre del archivo
+      messages:
+        $ref: '#/definitions/Campos'
+        description: Mensajes explicativos de extraccion no exitosa por campo
+  Campos:
+    type: object
+    properties:
+        status:
+          type: string
+          enum: ["John", "Manuel", "Samir", "Sebastian", "Aaron", "Gisela", "Juan", ]
+

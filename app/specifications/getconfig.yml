@@ -1,0 +1,5 @@
+Config
+---
+responses:
+  200:
+    description: config

@@ -1,0 +1,31 @@
+﻿clase,campo,texto,zonabusqueda,bbox,regexselect,regexreplace,datatype,params,sampleformat
+CP,cp.asiento,Asiento:,,,CP\d{8},,str,,CP00000000
+CP,cp.fecha_emision,Fecha de emisión:,,,\d{2}/\d{2}/\d{4},,datetime,%d/%m/%Y|%d/%m/%Y,dd/mm/yyyy
+CP,cp.fecha_asiento,Fecha de Asiento:,,,\d{2}/\d{2}/\d{4},,datetime,%d/%m/%Y|%d/%m/%Y,dd/mm/yyyy
+CP,cp.centro_costo,N Centro Costo Cuenta Contable Documento,,,(?<=(\s|^))\d\.\d\.\d\.\d{2}(?=(\s|$)),,str,,0.0.0.00
+CP,cp.cuenta_contable,N Centro Costo Cuenta Contable Documento,,,(?<=(\s|^))\d{2}\.\d\.\d\.\d\.\d{2}(?=(\s|$)),,str,,00.0.0.0.00
+FA,fa.ruc,FACTURA,,,\b\d{11}\b,,str,,00000000000
+FA,fa.tipo_doc,FACTURA,,,.*,,str,,
+FA,fa.numero_doc,FACTURA,,,.*,,str,,
+FA,fa.importe_total,TOTAL,,,.*,,str,,
+OC.LOG,oc.nombre_proveedor,EL PROVEEDOR,,,(?(?=.*:):<=.*|.*),,str,,
+OC.LOG,oc.ruc,RUC,,,\b\d{11}\b,,str,,00000000000
+OC.LOG,oc.fecha_emision,FECHA EMISION,,,\d{2}/\d{2}/\d{4},,datetime,%d/%m/%Y|%d/%m/%Y,dd/mm/yyyy
+OC.LOG,oc.subtotal,SUBTOTAL,,,"(?<=(\s|^))(\d{1,3}\,)*\d{1,3}\.\d{2}(?=(\s|$))",",|",float,,"0,000.00"
+OC.LOG,oc.total,TOTAL,,,"(?<=(\s|^))(\d{1,3}\,)*\d{1,3}\.\d{2}(?=(\s|$))",",|",float,,"0,000.00"
+OC.LOG,oc.numero,Nº O/C,,,OC\d{8},,str,,OC00000000
+OC.LOG,oc.observaciones,GERENCIA,,,(?(?=.*:):<=.*|.*),,str,,
+OC.CON,oc.nombre_proveedor,EÑORES,,,(?(?=.*:):<=.*|.*),,str,,
+OC.CON,oc.ruc,RUC,,,\b\d{11}\b,,str,,00000000000
+OC.CON,oc.observaciones,GERENCIA,,,(?(?=.*:):<=.*|.*),,str,,
+OC.CON,oc.numero,NRO. DE O/C,,,OC\d{8},,str,,OC00000000
+OC.CON,oc.fecha_emision,FECHA,,,\d{2}/\d{2}/\d{4},,datetime,%d/%m/%Y|%d/%m/%Y,dd/mm/yyyy
+OC.CON,oc.subtotal,VALOR VENTA,,,"(?<=(\s|^))(\d{1,3}\,)*\d{1,3}\.\d{2}(?=(\s|$))",",|",float,,"0,000.00"
+OC.CON,oc.total,PRECIO VENTA,,,"(?<=(\s|^))(\d{1,3}\,)*\d{1,3}\.\d{2}(?=(\s|$))",",|",float,,"0,000.00"
+PI,pi.observaciones,Observaciones:,,,(?(?=.*:):<=.*|.*),,str,,
+PI,pi.nombre_proveedor,Proveedor:,,,(?(?=.*:):<=.*|.*),,str,,
+PI,pi.numero,Parte de Ingreso N,,,EM\d{8},,str,,EM00000000
+PI,pi.orden_compra,Orden,,,OC\d{8},,str,,OC00000000
+PI,pi.precio_unitario,P.U.,,,"(?<=(\s|^))(\d{1,3}\,)*\d{1,3}\.\d{4}(?=(\s|$))",",|",float,,"0,000.0000"
+PI,pi.subtotal,Impuesto:,,,"(?<=(\s|^))(\d{1,3}\,)*\d{1,3}\.\d{2}(?=(\s|$))",",|",float,,"0,000.00"
+PI,pi.total,Total:,,,"(?<=(\s|^))(\d{1,3}\,)*\d{1,3}\.\d{2}(?=(\s|$))",",|",float,,"0,000.00"
